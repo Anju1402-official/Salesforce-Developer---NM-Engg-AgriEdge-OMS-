@@ -1,65 +1,70 @@
 # AgriEdge OMS Salesforce Project
 
-This repository contains a Salesforce DX implementation of the AgriEdge Or-Mange Ltd Order Management System (OMS).
+AgriEdge Or-Mange Ltd is modernizing its agriculture order management process with a Salesforce-based Order Management System (OMS). This repository now contains a deployable Salesforce DX implementation that covers the core order, inventory, shipment, automation, and security requirements from the project brief.
 
-## Included
+## Project Goals
+
+- Automate order processing and reduce manual errors
+- Track inventory levels in real time
+- Support responsive customer service with current order data
+- Enforce data quality with formula fields and validation rules
+- Provide a secure, extensible Salesforce foundation
+
+## What Is Included
 
 - Custom objects for orders, order items, inventory, and shipments
-- Formula fields and validation rules from the project brief
+- Formula fields for discounted totals, line totals, and stock status
+- Validation rules for low inventory and shipment tracking enforcement
 - A Lightning app and custom tabs
-- A record-triggered flow to automate follow-up task creation for new orders
-- Apex automation to keep order totals and inventory in sync
-- Apex test coverage
+- A record-triggered flow for new-order follow-up task creation
+- Apex trigger logic to recalculate order totals and update inventory
+- Apex tests for core OMS behaviors
 - A permission set for AgriEdge OMS users
+
+## Salesforce Components
+
+- `AgriEdge_Order__c`
+- `AgriEdge_OrderItem__c`
+- `AgriEdge_Inventory__c`
+- `AgriEdge_Shipment__c`
+- `AgriEdge_New_Order_Followup` flow
+- `AgriEdgeOrderItemTrigger`
+- `AgriEdgeOrderManagementService`
 
 ## Project Structure
 
-- `force-app/main/default/objects` - Custom objects, fields, and validation rules
-- `force-app/main/default/classes` - Apex classes, trigger, and tests
-- `force-app/main/default/flows` - Order automation flow
-- `force-app/main/default/applications` - Lightning app
-- `force-app/main/default/tabs` - Custom tabs
-- `force-app/main/default/permissionsets` - Access bundle for admins and demo users
+```text
+Salesforce-Developer---NM-Engg-AgriEdge-OMS-/
+|-- force-app/main/default/
+|   |-- applications/
+|   |-- classes/
+|   |-- flows/
+|   |-- objects/
+|   |-- permissionsets/
+|   `-- tabs/
+|-- package.xml
+|-- sfdx-project.json
+`-- README.md
+```
 
 ## Deployment
 
 1. Install Salesforce CLI.
-2. Authorize your org:
+2. Authorize your Salesforce org.
+3. Deploy the metadata.
+4. Run Apex tests.
 
 ```bash
 sf org login web --alias AgriEdgeDev
-```
-
-3. Deploy metadata:
-
-```bash
 sf project deploy start --target-org AgriEdgeDev
-```
-
-4. Run tests:
-
-```bash
 sf apex run test --target-org AgriEdgeDev --test-level RunLocalTests
 ```
 
 ## Notes
 
-- The brief references Process Builder. Salesforce now recommends Flow, so this project uses a record-triggered Flow for the same automation outcome.
-- The shipment object lookup is implemented against `AgriEdge_Order__c`, which matches the rest of the custom OMS model.
+- The original brief mentions Process Builder. Salesforce now recommends Flow, so the automation here is implemented as a record-triggered Flow.
+- The shipment lookup is modeled against `AgriEdge_Order__c` so the custom OMS objects stay consistent.
 
-## GitHub
+## Team Context
 
-The local repository folder name matches the requested GitHub repository:
-
-`Salesforce-Developer---NM-Engg-AgriEdge-OMS-`
-
-If you want to publish it manually after review:
-
-```bash
-git init
-git add .
-git commit -m "Add AgriEdge OMS Salesforce DX project"
-git branch -M main
-git remote add origin https://github.com/Anju1402-official/Salesforce-Developer---NM-Engg-AgriEdge-OMS-.git
-git push -u origin main
-```
+This repository preserves the original project context from the GitHub starter history while adding the full Salesforce DX implementation for the AgriEdge OMS solution.
