@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stock_Status__c</fullName>
+    <formula>IF(Stock_Quantity__c &lt;= Reorder_Level__c, "Low", "Sufficient")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Stock Status</label>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Salesforce-driven order management system for AgriEdge Or-Mange Ltd.</description>
+    <formFactors>Large</formFactors>
+    <formFactors>Small</formFactors>
+    <label>AgriEdge</label>
+    <navType>Standard</navType>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>AgriEdge_Order__c</tabs>
+    <tabs>AgriEdge_OrderItem__c</tabs>
+    <tabs>AgriEdge_Inventory__c</tabs>
+    <tabs>AgriEdge_Shipment__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-dashboard</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>
